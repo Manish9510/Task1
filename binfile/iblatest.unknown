@@ -1,0 +1,1167 @@
+Verify the Infiniband interface:
+mlx5_0
+Infiniband interface OK
+
+Generate the Slurm topology.conf file for Infiniband switches.
+
+Beware: The Switches= lines need to be reviewed and edited for correctness.
+Read also https://slurm.schedmd.com/topology.html
+
+#
+# IB switch no. 1: ibsw1 GUID: 0x506b4b030082d690 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  CA  with 15 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Total number of links in this switch =  31
+SwitchName=ibsw1 Nodes=gpu[001-006,008],gs-c0-vm1,gs-c1-vm1,master,mds1,oss[1-4]
+#
+# IB switch no. 2: ibsw2 GUID: 0x506b4b030082d9f0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  CA  with 17 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Total number of links in this switch =  33
+SwitchName=ibsw2 Nodes=cn[353-357,367-374],gpu[019-022]
+#
+# IB switch no. 3: ibsw3 GUID: 0x506b4b030086b980 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw3 Nodes=cn[335-352]
+#
+# IB switch no. 4: ibsw4 GUID: 0x506b4b030086b960 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw4 Nodes=cn[321-334],gpu[015-018]
+#
+# IB switch no. 5: ibsw5 GUID: 0x506b4b030082da70 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  CA  with 14 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Total number of links in this switch =  30
+SwitchName=ibsw5 Nodes=cn[358-361,363-366,379-384]
+#
+# IB switch no. 6: ibsw6 GUID: 0x506b4b030082db90 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw6 Nodes=hm[001-016,018,020]
+#
+# IB switch no. 7: ibsw7 GUID: 0x506b4b030082daf0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  CA  with 17 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Total number of links in this switch =  33
+SwitchName=ibsw7 Nodes=hm[017,019,022-036]
+#
+# IB switch no. 8: ibsw8 GUID: 0x506b4b0300820c90 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  CA  with 16 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Total number of links in this switch =  32
+SwitchName=ibsw8 Nodes=cn[001-016]
+#
+# IB switch no. 9: ibsw9 GUID: 0x506b4b030082d770 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  CA  with 8 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Total number of links in this switch =  24
+SwitchName=ibsw9 Nodes=cn[053-060]
+#
+# IB switch no. 10: ibsw10 GUID: 0x506b4b030082f300 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw10 Nodes=cn[033,035,037-052]
+#
+# IB switch no. 11: ibsw11 GUID: 0x506b4b030082f220 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw11 Nodes=cn[017-032,034,036]
+#
+# IB switch no. 12: ibsw12 GUID: 0x506b4b030082d6d0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  CA  with 17 links
+# Total number of links in this switch =  33
+SwitchName=ibsw12 Nodes=gpu[007,009-014],gs-c0-vm2,gs-c1-vm2,master1,mds[1-2],oss[1-4]
+#
+# IB switch no. 13: ibsw13 GUID: 0x506b4b030082f380 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  CA  with 18 links
+# Total number of links in this switch =  34
+SwitchName=ibsw13 Nodes=cn[093,095,097-112]
+#
+# IB switch no. 14: ibsw14 GUID: 0x506b4b030082f360 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  CA  with 16 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Total number of links in this switch =  32
+SwitchName=ibsw14 Nodes=cn[077,079,081-092,094,096]
+#
+# IB switch no. 15: ibsw15 GUID: 0x506b4b030082f340 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw15 Nodes=cn[061-076,078,080]
+#
+# IB switch no. 16: ibsw16 GUID: 0x506b4b030082f870 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  CA  with 16 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Total number of links in this switch =  32
+SwitchName=ibsw16 Nodes=cn[149-164]
+#
+# IB switch no. 17: ibsw17 GUID: 0x506b4b030082f8f0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  CA  with 18 links
+# Total number of links in this switch =  34
+SwitchName=ibsw17 Nodes=cn[129,131,133-148]
+#
+# IB switch no. 18: ibsw18 GUID: 0x506b4b030082f8d0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw18 Nodes=cn[113-128,130,132]
+#
+# IB switch no. 19: ibsw19 GUID: 0x506b4b030082fc90 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  CA  with 16 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Total number of links in this switch =  32
+SwitchName=ibsw19 Nodes=cn[201-216]
+#
+# IB switch no. 20: ibsw20 GUID: 0x506b4b030082faf0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  CA  with 17 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Total number of links in this switch =  33
+SwitchName=ibsw20 Nodes=cn[181,183,185-194,196-200]
+#
+# IB switch no. 21: ibsw21 GUID: 0x506b4b030082f910 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw21 Nodes=cn[165-180,182,184]
+#
+# IB switch no. 22: ibsw22 GUID: 0x506b4b030082d830 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  CA  with 16 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Total number of links in this switch =  32
+SwitchName=ibsw22 Nodes=cn[253-268]
+#
+# IB switch no. 23: ibsw23 GUID: 0x506b4b030082d870 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw23 Nodes=cn[233,235,237-252]
+#
+# IB switch no. 24: ibsw24 GUID: 0x506b4b0300826260 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw24 Nodes=cn[217-232,234,236]
+#
+# IB switch no. 25: ibsw25 GUID: 0x98039b0300db58c0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  CA  with 16 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Total number of links in this switch =  32
+SwitchName=ibsw25 Nodes=cn[305-320]
+#
+# IB switch no. 26: ibsw26 GUID: 0x98039b0300db5880 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  CA  with 16 links
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Total number of links in this switch =  31
+SwitchName=ibsw26 Nodes=cn[285,287,289-290,292-303]
+#
+# IB switch no. 27: ibsw27 GUID: 0x98039b0300cf2be0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  CA  with 18 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Total number of links in this switch =  34
+SwitchName=ibsw27 Nodes=cn[269-284,286,288]
+#
+# IB switch no. 28: ibsw28 GUID: 0x506b4b030082f8b0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw28 has no attached nodes (empty hostlist)
+SwitchName=ibsw28 Switches=ibsw[1-27,44]
+#
+# IB switch no. 29: ibsw29 GUID: 0x506b4b030082f810 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw29 has no attached nodes (empty hostlist)
+SwitchName=ibsw29 Switches=ibsw[1-27,44]
+#
+# IB switch no. 30: ibsw30 GUID: 0x506b4b030082f7f0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw30 has no attached nodes (empty hostlist)
+SwitchName=ibsw30 Switches=ibsw[1-27,44]
+#
+# IB switch no. 31: ibsw31 GUID: 0x506b4b030082f7d0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw31 has no attached nodes (empty hostlist)
+SwitchName=ibsw31 Switches=ibsw[1-27,44]
+#
+# IB switch no. 32: ibsw32 GUID: 0x506b4b030082f7b0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Total number of links in this switch =  27
+# NOTICE: This switch ibsw32 has no attached nodes (empty hostlist)
+SwitchName=ibsw32 Switches=ibsw[1-25,27,44]
+#
+# IB switch no. 33: ibsw33 GUID: 0x506b4b030082f790 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw33 has no attached nodes (empty hostlist)
+SwitchName=ibsw33 Switches=ibsw[1-27,44]
+#
+# IB switch no. 34: ibsw34 GUID: 0x506b4b030082f770 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw34 has no attached nodes (empty hostlist)
+SwitchName=ibsw34 Switches=ibsw[1-27,44]
+#
+# IB switch no. 35: ibsw35 GUID: 0x506b4b030082f750 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw35 has no attached nodes (empty hostlist)
+SwitchName=ibsw35 Switches=ibsw[1-27,44]
+#
+# IB switch no. 36: ibsw36 GUID: 0x506b4b030082f730 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw36 has no attached nodes (empty hostlist)
+SwitchName=ibsw36 Switches=ibsw[1-27,44]
+#
+# IB switch no. 37: ibsw37 GUID: 0x506b4b030082f710 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw37 has no attached nodes (empty hostlist)
+SwitchName=ibsw37 Switches=ibsw[1-27,44]
+#
+# IB switch no. 38: ibsw38 GUID: 0x506b4b030082f6f0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw38 has no attached nodes (empty hostlist)
+SwitchName=ibsw38 Switches=ibsw[1-27,44]
+#
+# IB switch no. 39: ibsw39 GUID: 0x506b4b030082f6d0 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw39 has no attached nodes (empty hostlist)
+SwitchName=ibsw39 Switches=ibsw[1-27,44]
+#
+# IB switch no. 40: ibsw40 GUID: 0x506b4b030082f540 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw40 has no attached nodes (empty hostlist)
+SwitchName=ibsw40 Switches=ibsw[1-27,44]
+#
+# IB switch no. 41: ibsw41 GUID: 0x506b4b030082f520 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw41 has no attached nodes (empty hostlist)
+SwitchName=ibsw41 Switches=ibsw[1-27,44]
+#
+# IB switch no. 42: ibsw42 GUID: 0x506b4b030082f500 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw42 has no attached nodes (empty hostlist)
+SwitchName=ibsw42 Switches=ibsw[1-27,44]
+#
+# IB switch no. 43: ibsw43 GUID: 0x98039b0300dd1720 Description: MF0;mgmt-ib02:MSB7800/U1
+#
+# Switch neighbor  0x506b4b030082f8f0  with 1 links
+# Switch neighbor  0x98039b0300db5880  with 1 links
+# Switch neighbor  0x506b4b030086b960  with 1 links
+# Switch neighbor  0x506b4b030082f360  with 1 links
+# Switch neighbor  0x506b4b03007da230  with 1 links
+# Switch neighbor  0x506b4b030082da70  with 1 links
+# Switch neighbor  0x506b4b0300826260  with 1 links
+# Switch neighbor  0x506b4b030082db90  with 1 links
+# Switch neighbor  0x506b4b030082f870  with 1 links
+# Switch neighbor  0x506b4b030082d870  with 1 links
+# Switch neighbor  0x506b4b030082d830  with 1 links
+# Switch neighbor  0x98039b0300cf2be0  with 1 links
+# Switch neighbor  0x506b4b030082f910  with 1 links
+# Switch neighbor  0x506b4b030082d6d0  with 1 links
+# Switch neighbor  0x506b4b0300820c90  with 1 links
+# Switch neighbor  0x506b4b030082f8d0  with 1 links
+# Switch neighbor  0x506b4b030082f220  with 1 links
+# Switch neighbor  0x506b4b030086b980  with 1 links
+# Switch neighbor  0x506b4b030082f380  with 1 links
+# Switch neighbor  0x506b4b030082f340  with 1 links
+# Switch neighbor  0x506b4b030082f300  with 1 links
+# Switch neighbor  0x506b4b030082d9f0  with 1 links
+# Switch neighbor  0x506b4b030082d690  with 1 links
+# Switch neighbor  0x506b4b030082d770  with 1 links
+# Switch neighbor  0x98039b0300db58c0  with 1 links
+# Switch neighbor  0x506b4b030082fc90  with 1 links
+# Switch neighbor  0x506b4b030082faf0  with 1 links
+# Switch neighbor  0x506b4b030082daf0  with 1 links
+# Total number of links in this switch =  28
+# NOTICE: This switch ibsw43 has no attached nodes (empty hostlist)
+SwitchName=ibsw43 Switches=ibsw[1-27,44]
+#
+# IB switch no. 44: ibsw44 GUID: 0x506b4b03007da230 Description: SwitchIB Mellanox Technologies
+#
+# Switch neighbor  0x506b4b030082f770  with 1 links
+# Switch neighbor  0x506b4b030082f730  with 1 links
+# Switch neighbor  0x506b4b030082f810  with 1 links
+# Switch neighbor  0x506b4b030082f540  with 1 links
+# Switch neighbor  0x506b4b030082f500  with 1 links
+# Switch neighbor  0x506b4b030082f6f0  with 1 links
+# Switch neighbor  0x506b4b030082f7d0  with 1 links
+# Switch neighbor  0x506b4b030082f8b0  with 1 links
+# Switch neighbor  0x98039b0300dd1720  with 1 links
+# Switch neighbor  0x506b4b030082f790  with 1 links
+# Switch neighbor  0x506b4b030082f750  with 1 links
+# Switch neighbor  0x506b4b030082f710  with 1 links
+# Switch neighbor  0x506b4b030082f520  with 1 links
+# Switch neighbor  0x506b4b030082f6d0  with 1 links
+# Switch neighbor  0x506b4b030082f7f0  with 1 links
+# Switch neighbor  0x506b4b030082f7b0  with 1 links
+# Switch neighbor  CA  with 15 links
+# Total number of links in this switch =  31
+SwitchName=ibsw44 Nodes=MT4119,login[01-08],mgmt[1-2],node[1-3],practice1

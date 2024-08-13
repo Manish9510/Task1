@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tree Visualization using d3js</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      overflow-x: auto;
+    }
+    svg {
+      display: block;
+      min-width: 100%;
+      min-height: 2000px;  
+    }
+    .node {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .node circle {
+      fill: #fff;
+      stroke: #4a90e2;
+      stroke-width: 1.5px;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+      transition: all 0.2s ease;
+    }
+    .node text {
+      font: 12px sans-serif;
+      fill: #333;
+      transition: all 0.2s ease;
+    }
+    .node-label {
+      fill: white;
+      stroke: white;
+      stroke-width: 3px;
+      stroke-linejoin: round;
+      paint-order: stroke;
+    }
+    .link {
+      fill: none;
+      stroke: rgb(246, 211, 211);
+      stroke-width: 1px;
+      transition: all 0.2s ease;
+    }
+    .node.highlight circle {
+      fill: #f39c12;
+      stroke: #e67e22;
+      r: 14;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    }
+    .node.highlight text {
+      font-size: 14px;
+      font-weight: bold;
+      fill: #e67e22;
+    }
+    .link.highlight {
+      stroke: #e67e22;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+  <svg></svg>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const svg = d3.select("svg");
+    const g = svg.append("g").attr("transform", "translate(40,0)");
+
+    const l2Y = 100;
+    const l1Y = 300;
+    const l0Y = 500;
+
+    const l2XStep = 300;
+    const l1XStep = 150;
+    const l0XStep = 80;
+
+    d3.json("result.json").then(data => {
+      const linkGroup = g.append("g").attr("class", "link-group");
+      const nodeGroup = g.append("g").attr("class", "node-group");
+
+      const l2Nodes = nodeGroup.selectAll(".l2")
+        .data(data.l2Switches)
+        .enter().append("g")
+        .attr("class", "node l2")
+        .attr("transform", (d, i) => `translate(${(i + 1) * l2XStep}, ${l2Y})`)
+        .call(g => {
+          g.append("circle").attr("r", 10);
+          g.append("text")
+            .attr("dy", -20)
+            .attr("text-anchor", "middle")
+            .text(d => d.switch_name);
+        })
+        .on("mouseover", highlightConnected)
+        .on("mouseout", unhighlightAll);
+
+      const l1Nodes = nodeGroup.selectAll(".l1")
+        .data(data.l1Switches)
+        .enter().append("g")
+        .attr("class", "node l1")
+        .attr("transform", (d, i) => `translate(${(i + 1) * l1XStep}, ${l1Y})`)
+        .call(g => {
+          g.append("circle").attr("r", 10);
+          g.append("text")
+            .attr("dy", -20)
+            .attr("text-anchor", "middle")
+            .attr("class", "node-label")
+            .text(d => d.switch_name);
+          g.append("text")
+            .attr("dy", -20)
+            .attr("text-anchor", "middle")
+            .text(d => d.switch_name);
+        })
+        .on("click", toggleL0Nodes)
+        .on("mouseover", highlightConnected)
+        .on("mouseout", unhighlightAll);
+
+      l2Nodes.each(function(l2) {
+        const l2X = +d3.select(this).attr("transform").split("(")[1].split(",")[0];
+
+        l1Nodes.each(function() {
+          const l1X = +d3.select(this).attr("transform").split("(")[1].split(",")[0];
+
+          const midY = (l2Y + l1Y) / 2;
+          const controlPoint1 = [l2X, midY];
+          const controlPoint2 = [l1X, midY];
+
+          linkGroup.append("path")
+            .attr("class", "link")
+            .attr("d", d3.line().curve(d3.curveBasis)([
+              [l2X, l2Y],
+              controlPoint1,
+              controlPoint2,
+              [l1X, l1Y]
+            ]));
+        });
+      });
+
+      function toggleL0Nodes(event, d) {
+        const l1Node = d3.select(this);
+        const l1X = +l1Node.attr("transform").split("(")[1].split(",")[0];
+        const l0Group = g.select(`.l0-group-${d.switch_name}`);
+
+        if (l0Group.empty()) {
+          const newGroup = nodeGroup.append("g")
+            .attr("class", `l0-group-${d.switch_name}`);
+
+          newGroup.selectAll(".l0")
+            .data(d.nodes)
+            .enter().append("g")
+            .attr("class", "node l0")
+            .attr("transform", (_, j) => {
+              const offset = 100;
+              const x = l1X + j * l0XStep + offset;
+              const y = l0Y;
+              return `translate(${x}, ${y})`;
+            })
+            .call(g => {
+              g.append("circle").attr("r", 8);
+              g.append("text")
+                .attr("dy", 20)
+                .attr("text-anchor", "middle")
+                .attr("font-size", "12px")
+                .text(n => n);
+            })
+            .on("mouseover", highlightConnected)
+            .on("mouseout", unhighlightAll);
+
+          linkGroup.selectAll(`.l0-link-${d.switch_name}`)
+            .data(d.nodes)
+            .enter().append("path")
+            .attr("class", `link l0-link-${d.switch_name}`)
+            .attr("d", (_, j) => {
+              const offset = 100;
+              const x = l1X + j * l0XStep + offset;
+              return `M${l1X},${l1Y}L${x},${l0Y}`;
+            });
+        } else {
+          l0Group.remove();
+          linkGroup.selectAll(`.l0-link-${d.switch_name}`).remove();
+        }
+
+        if (l1Node.classed("highlight")) {
+          highlightConnected.call(this, event, d);
+        }
+
+        updateSVGSize();
+      }
+
+      function getConnectedElements(node) {
+        const nodeTransform = node.attr("transform");
+        const [nodeX, nodeY] = nodeTransform.match(/\d+(\.\d+)?/g);
+        
+        const connectedLinks = linkGroup.selectAll(".link").filter(function() {
+          const pathD = d3.select(this).attr("d");
+          const endpoints = pathD.split(/[ML]/);
+          return endpoints.some(point => point.trim().startsWith(`${nodeX},${nodeY}`));
+        });
+
+        const connectedNodes = nodeGroup.selectAll(".node").filter(function() {
+          const otherTransform = d3.select(this).attr("transform");
+          const [otherX, otherY] = otherTransform.match(/\d+(\.\d+)?/g);
+          return connectedLinks.filter(function() {
+            const pathD = d3.select(this).attr("d");
+            return pathD.includes(`${otherX},${otherY}`);
+          }).size() > 0;
+        });
+
+        return { links: connectedLinks, nodes: connectedNodes };
+      }
+
+      function highlightConnected(event, d) {
+        const node = d3.select(this);
+        const connected = getConnectedElements(node);
+
+        node.classed("highlight", true);
+        connected.links.classed("highlight", true);
+        connected.nodes.classed("highlight", true);
+      }
+
+      function unhighlightAll() {
+        g.selectAll(".node").classed("highlight", false);
+        g.selectAll(".link").classed("highlight", false);
+      }
+
+      function updateSVGSize() {
+        const bounds = g.node().getBBox();
+        const width = Math.max(bounds.width + 500, window.innerWidth); 
+        const height = Math.max(bounds.height + 100, window.innerHeight);
+        svg.attr("width", width).attr("height", height);
+      }
+
+      updateSVGSize();
+    }).catch(error => {
+      console.error('Error loading the JSON data:', error);
+    });
+  </script>
+</body>
+</html>
