@@ -45,10 +45,10 @@
       transition: all 0.2s ease;
     }
     .link.l2-to-l1 {
-      stroke: rgb(225, 103, 103); /* Red color for L2 to L1 links */
+      stroke: rgb(225, 103, 103); 
     }
     .link.l1-to-l0 {
-      stroke: rgb(111, 111, 211); /* Blue color for L1 to L0 links */
+      stroke: rgb(111, 111, 211); 
     }
     .node.highlight circle {
       fill: #f39c12;
@@ -62,7 +62,7 @@
       fill: #e67e22;
     }
     .link.highlight {
-      stroke: rgb(83, 77, 77) !important; /* Green color on hover */
+      stroke: rgb(83, 77, 77) !important; 
       stroke-width: 2px;
     }
   </style>
@@ -83,7 +83,7 @@
     const l1XStep = 150;
     const l0XStep = 80;
 
-    let expandedNode = null; // Track the currently expanded node
+    let expandedNode = null; 
 
     d3.json("result.json").then(data => {
       const linkGroup = g.append("g").attr("class", "link-group");
@@ -147,15 +147,12 @@
         const l1X = +l1Node.attr("transform").split("(")[1].split(",")[0];
         const l0Group = g.select(`.l0-group-${d.switch_name}`);
 
-        // Collapse the previously expanded node
         if (expandedNode && expandedNode !== d.switch_name) {
           g.select(`.l0-group-${expandedNode}`).remove();
           linkGroup.selectAll(`.l0-link-${expandedNode}`).remove();
         }
 
-        // Toggle the current node
         if (l0Group.empty()) {
-          // Expand the new node
           const newGroup = nodeGroup.append("g")
             .attr("class", `l0-group-${d.switch_name}`);
 
@@ -192,7 +189,6 @@
 
           expandedNode = d.switch_name;
         } else {
-          // Collapse the node
           l0Group.remove();
           linkGroup.selectAll(`.l0-link-${d.switch_name}`).remove();
           expandedNode = null;
