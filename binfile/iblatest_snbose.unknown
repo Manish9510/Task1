@@ -1,0 +1,100 @@
+Notice: Command /usr/bin/scontrol not found (for sorting hostlists)
+Verify the Infiniband interface:
+mlx5_0
+Infiniband interface OK
+
+Generate the Slurm topology.conf file for Infiniband switches.
+
+Beware: The Switches= lines need to be reviewed and edited for correctness.
+Read also https://slurm.schedmd.com/topology.html
+
+#
+# IB switch no. 1: ibsw1 GUID: 0xa088c203008e2b02 Description: Quantum Mellanox Technologies
+#
+# Switch neighbor  CA  with 13 links
+# Switch neighbor  0xa088c203008e2f42  with 6 links
+# Switch neighbor  0xa088c203008e2f62  with 6 links
+# Switch neighbor  0xa088c203008e2ac2  with 6 links
+# Total number of links in this switch =  31
+SwitchName=ibsw1 Nodes=es400nvx2-vm0,rbhm004,rbhm003,rbhm008,rbhm007,es400nvx2-vm3,rbhm001,rbhm002,rbhm005,rbhm006,es400nvx2-vm1,es400nvx2-vm2
+#
+# IB switch no. 2: ibsw2 GUID: 0xa088c20300cd6002 Description: MF0;switch2.bose.res.in:MQM8700/U1
+#
+# Switch neighbor  0xa088c203008e2ac2  with 6 links
+# Switch neighbor  0xa088c203008e2f42  with 6 links
+# Switch neighbor  0xa088c203008e2f62  with 6 links
+# Switch neighbor  CA  with 36 links
+# Total number of links in this switch =  54
+SwitchName=ibsw2 Nodes=rbcn089,rbcn091,rbcn101,rbcn103,rbcn085,rbcn087,rbhm009,rbhm011,rbhm027,rbhm029,rbhm013,rbhm015,rbhm023,rbhm025,rbhm017,rbhm019,rbcn105,rbhm021,rbcn106,rbhm022,rbhm024,rbhm026,rbcn102,rbcn104,rbhm028,rbhm030,rbhm018,rbhm020,rbcn086,rbcn088,rbhm014,rbhm016,rbcn090,rbcn092,rbhm010,rbhm012
+#
+# IB switch no. 3: ibsw3 GUID: 0xa088c20300cd5fe2 Description: MF0;switch1.bose.res.in:MQM8700/U1
+#
+# Switch neighbor  0xa088c203008e2f42  with 6 links
+# Switch neighbor  0xa088c203008e2f62  with 6 links
+# Switch neighbor  CA  with 30 links
+# Switch neighbor  0xa088c203008e2ac2  with 6 links
+# Total number of links in this switch =  48
+SwitchName=ibsw3 Nodes=rbcn081,rbcn083,rbcn077,rbcn079,rbcn073,rbcn075,rbcn069,rbcn071,rbcn065,rbcn067,rbgpu007,rbcn063,es400nvx2-vm0,rbcn004,rbcn005,rbcn041,rbcn040,es400nvx2-vm1,es400nvx2-vm2,rbgpu008,rbcn064,rbcn066,MT4123,rbcn070,rbcn072,rbcn076,rbcn080,rbcn082,rbcn084
+#
+# IB switch no. 4: ibsw4 GUID: 0xa088c203008e2402 Description: Quantum Mellanox Technologies
+#
+# Switch neighbor  0xa088c203008e2ac2  with 6 links
+# Switch neighbor  CA  with 29 links
+# Switch neighbor  0xa088c203008e2f42  with 6 links
+# Switch neighbor  0xa088c203008e2f62  with 6 links
+# Total number of links in this switch =  47
+SwitchName=ibsw4 Nodes=rbcn049,rbcn051,rbcn053,rbcn055,rbcn057,rbcn059,rbcn061,rbcn099,rbgpu005,rbcn039,rbcn042,rbcn001,rbcn006,rbcn007,rbcn002,rbcn003,rbcn094,rbcn093,rbcn095,rbcn096,rbcn100,rbgpu006,rbcn060,rbcn062,rbcn056,rbcn058,rbcn052,rbcn054,rbcn050
+#
+# IB switch no. 5: ibsw5 GUID: 0xa088c203008e22e2 Description: Quantum Mellanox Technologies
+#
+# Switch neighbor  0xa088c203008e2ac2  with 6 links
+# Switch neighbor  0xa088c203008e2f42  with 6 links
+# Switch neighbor  0xa088c203008e2f62  with 6 links
+# Switch neighbor  CA  with 32 links
+# Total number of links in this switch =  50
+SwitchName=ibsw5 Nodes=rbcn035,rbcn011,rbcn031,rbcn033,rbcn013,rbcn015,MT4123,rbcn029,rbcn017,rbcn019,rbcn023,rbcn097,rbgpu001,rbgpu003,rbcn021,rbgpu004,rbcn024,rbcn026,rbcn098,rbgpu002,rbcn028,rbcn030,rbcn018,rbcn020,rbcn032,rbcn034,rbcn014,rbcn016,rbcn036,rbcn038,rbcn012
+#
+# IB switch no. 6: ibsw6 GUID: 0xa088c203008e2ac2 Description: Quantum Mellanox Technologies
+#
+# Switch neighbor  0xa088c203008e22e2  with 6 links
+# Switch neighbor  0xa088c203008e2402  with 6 links
+# Switch neighbor  0xa088c203008e2b02  with 6 links
+# Switch neighbor  0xa088c20300cd5fe2  with 6 links
+# Switch neighbor  0xa088c20300cd6002  with 6 links
+# Switch neighbor  0xa088c203008e2982  with 6 links
+# Total number of links in this switch =  36
+# NOTICE: This switch ibsw6 has no attached nodes (empty hostlist)
+SwitchName=ibsw6 Switches=ibsw3,ibsw4,ibsw2,ibsw5,ibsw9,ibsw1
+#
+# IB switch no. 7: ibsw7 GUID: 0xa088c203008e2f42 Description: Quantum Mellanox Technologies
+#
+# Switch neighbor  0xa088c203008e2402  with 6 links
+# Switch neighbor  0xa088c203008e2b02  with 6 links
+# Switch neighbor  0xa088c20300cd5fe2  with 6 links
+# Switch neighbor  0xa088c20300cd6002  with 6 links
+# Switch neighbor  0xa088c203008e2982  with 6 links
+# Switch neighbor  0xa088c203008e22e2  with 6 links
+# Total number of links in this switch =  36
+# NOTICE: This switch ibsw7 has no attached nodes (empty hostlist)
+SwitchName=ibsw7 Switches=ibsw2,ibsw5,ibsw9,ibsw1,ibsw3,ibsw4
+#
+# IB switch no. 8: ibsw8 GUID: 0xa088c203008e2f62 Description: Quantum Mellanox Technologies
+#
+# Switch neighbor  0xa088c20300cd5fe2  with 6 links
+# Switch neighbor  0xa088c20300cd6002  with 6 links
+# Switch neighbor  0xa088c203008e2982  with 6 links
+# Switch neighbor  0xa088c203008e22e2  with 6 links
+# Switch neighbor  0xa088c203008e2402  with 6 links
+# Switch neighbor  0xa088c203008e2b02  with 6 links
+# Total number of links in this switch =  36
+# NOTICE: This switch ibsw8 has no attached nodes (empty hostlist)
+SwitchName=ibsw8 Switches=ibsw2,ibsw5,ibsw9,ibsw1,ibsw3,ibsw4
+#
+# IB switch no. 9: ibsw9 GUID: 0xa088c203008e2982 Description: Quantum Mellanox Technologies
+#
+# Switch neighbor  0xa088c203008e2ac2  with 6 links
+# Switch neighbor  0xa088c203008e2f42  with 6 links
+# Switch neighbor  0xa088c203008e2f62  with 6 links
+# Switch neighbor  CA  with 24 links
+# Total number of links in this switch =  42
+SwitchName=ibsw9 Nodes=rbcn119,rbcn121,rbcn109,rbcn111,mgmt02,MT4123,rbcn113,rbcn115,boson02,mgmt01,rbcn117,boson01,login02,login03,rbcn118,login01,login04,bmcserver,rbcn114,rbcn116,rbcn120,rbcn122,rbcn110,rbcn112

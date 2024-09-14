@@ -44,4 +44,4 @@ const result = {
 
 fs.writeFileSync('result.json', JSON.stringify(result, null, 2), 'utf8');
 
-console.log('Data has been structured and saved to result.json');
+console.log('Data has been structured and saved to result_new.json');

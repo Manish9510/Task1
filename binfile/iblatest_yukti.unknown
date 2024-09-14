@@ -1,0 +1,99 @@
+Verify the Infiniband interface:
+mlx5_0
+Infiniband interface OK
+
+Generate the Slurm topology.conf file for Infiniband switches.
+
+Beware: The Switches= lines need to be reviewed and edited for correctness.
+Read also https://slurm.schedmd.com/topology.html
+
+#
+# IB switch no. 1: ibsw1 GUID: 0x0800380300b90060 Description: pm2-wpe1
+#
+# Switch neighbor  CA  with 35 links
+# Switch neighbor  0x0800380300b8f6a0  with 6 links
+# Switch neighbor  0x0800380300b8f660  with 6 links
+# Switch neighbor  0x0800380300b90840  with 6 links
+# Total number of links in this switch =  53
+SwitchName=ibsw1 Nodes=Mellanox,cn[108-110],gpu[029-032,034-042],hm[014,017,020,023,026-033,035-036],login[03-04],oss[1-2]
+#
+# IB switch no. 2: ibsw2 GUID: 0x0800380300b912c0 Description: pm2-wpe0
+#
+# Switch neighbor  0x0800380300b8f660  with 6 links
+# Switch neighbor  0x0800380300b90840  with 5 links
+# Switch neighbor  0x0800380300b8f6a0  with 6 links
+# Switch neighbor  CA  with 23 links
+# Total number of links in this switch =  40
+SwitchName=ibsw2 Nodes=Mellanox,hm[001-006,008-013,015-016,018-019,021-022,024-025,034],master1
+#
+# IB switch no. 3: ibsw3 GUID: 0x0800380300b8e120 Description: pm1-wpe1
+#
+# Switch neighbor  0x0800380300b8f6a0  with 6 links
+# Switch neighbor  0x0800380300b8f660  with 6 links
+# Switch neighbor  CA  with 34 links
+# Switch neighbor  0x0800380300b90840  with 6 links
+# Total number of links in this switch =  52
+SwitchName=ibsw3 Nodes=MT4123,Mellanox,cn[050,053,056,059,062,065-066,068-069,071-072,074-075],gpu[015-026,028],login[01-02],master,mds[1-2]
+#
+# IB switch no. 4: ibsw4 GUID: 0x0800380300b8f640 Description: pm1-wpe0
+#
+# Switch neighbor  0x0800380300b8f660  with 6 links
+# Switch neighbor  0x0800380300b90840  with 6 links
+# Switch neighbor  CA  with 26 links
+# Switch neighbor  0x0800380300b8f6a0  with 6 links
+# Total number of links in this switch =  44
+SwitchName=ibsw4 Nodes=Mellanox,cn[040-049,051-052,054-055,057-058,060-061,064,067,070,073],hm[037-039]
+#
+# IB switch no. 5: ibsw5 GUID: 0x0800380300b8e460 Description: pm0-wpe0
+#
+# Switch neighbor  0x0800380300b8f6a0  with 6 links
+# Switch neighbor  CA  with 24 links
+# Switch neighbor  0x0800380300b8f660  with 6 links
+# Switch neighbor  0x0800380300b90840  with 6 links
+# Total number of links in this switch =  42
+SwitchName=ibsw5 Nodes=Mellanox,cn[001-013,016,018,022,024-025,028,031,034,037,039]
+#
+# IB switch no. 6: ibsw6 GUID: 0x0800380300b8f660 Description: pm1-wpe5
+#
+# Switch neighbor  0x0800380300b8e120  with 6 links
+# Switch neighbor  0x0800380300b8f640  with 6 links
+# Switch neighbor  CA  with 1 links
+# Switch neighbor  0x0800380300b90060  with 6 links
+# Switch neighbor  0x0800380300b8e0c0  with 6 links
+# Switch neighbor  0x0800380300b912c0  with 6 links
+# Switch neighbor  0x0800380300b8e460  with 6 links
+# Total number of links in this switch =  37
+SwitchName=ibsw6 Nodes=Mellanox
+#
+# IB switch no. 7: ibsw7 GUID: 0x0800380300b8f6a0 Description: pm1-wpe6
+#
+# Switch neighbor  CA  with 1 links
+# Switch neighbor  0x0800380300b90060  with 6 links
+# Switch neighbor  0x0800380300b8e0c0  with 6 links
+# Switch neighbor  0x0800380300b912c0  with 6 links
+# Switch neighbor  0x0800380300b8e460  with 6 links
+# Switch neighbor  0x0800380300b8e120  with 6 links
+# Switch neighbor  0x0800380300b8f640  with 6 links
+# Total number of links in this switch =  37
+SwitchName=ibsw7 Nodes=Mellanox
+#
+# IB switch no. 8: ibsw8 GUID: 0x0800380300b90840 Description: pm1-wpe7
+#
+# Switch neighbor  CA  with 1 links
+# Switch neighbor  0x0800380300b8e460  with 6 links
+# Switch neighbor  0x0800380300b8f640  with 6 links
+# Switch neighbor  0x0800380300b8e120  with 6 links
+# Switch neighbor  0x0800380300b90060  with 6 links
+# Switch neighbor  0x0800380300b8e0c0  with 6 links
+# Switch neighbor  0x0800380300b912c0  with 5 links
+# Total number of links in this switch =  36
+SwitchName=ibsw8 Nodes=Mellanox
+#
+# IB switch no. 9: ibsw9 GUID: 0x0800380300b8e0c0 Description: pm0-wpe1
+#
+# Switch neighbor  0x0800380300b90840  with 6 links
+# Switch neighbor  0x0800380300b8f6a0  with 6 links
+# Switch neighbor  0x0800380300b8f660  with 6 links
+# Switch neighbor  CA  with 38 links
+# Total number of links in this switch =  56
+SwitchName=ibsw9 Nodes=MT4123,Mellanox,cn[014-015,017,019-021,023,026-027,029-030,032-033,035-036,038],gpu[001-014,027],mds[1-2],mgmt01,oss[1-2]

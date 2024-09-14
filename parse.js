@@ -90,7 +90,7 @@ function processRange(range, expandedNodes) {
     }
 }
 
-const inputFilePath = path.join(__dirname, 'iblatest.unknown');
+const inputFilePath = path.join(__dirname, 'ibtest.unknown');
 const outputFilePath = path.join(__dirname, 'parsed_data.json');
 
 const parsedData = parseSwitchData(inputFilePath);
